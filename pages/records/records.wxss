@@ -1,0 +1,235 @@
+/* ---------- 身份卡 ---------- */
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  padding: 30rpx 32rpx;
+  margin: 0 24rpx;
+  border-radius: 0 0 24rpx 24rpx;
+  background: linear-gradient(150deg, #1E5145, #12332C);
+}
+
+.profile__avatar {
+  width: 92rpx;
+  height: 92rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  background: rgba(247, 243, 232, 0.12);
+  border: 1rpx solid rgba(217, 192, 140, 0.34);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile__img {
+  width: 100%;
+  height: 100%;
+}
+
+.profile__initial {
+  font-size: 40rpx;
+  color: #D9C08C;
+  letter-spacing: 0;
+}
+
+.profile__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.profile__name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #F7F3E8;
+  letter-spacing: 2rpx;
+}
+
+.profile__sub {
+  font-size: 21rpx;
+  color: rgba(247, 243, 232, 0.58);
+  letter-spacing: 0.5rpx;
+}
+
+.profile__action {
+  padding: 8rpx 24rpx;
+  border-radius: 4rpx;
+  border: 1rpx solid rgba(247, 243, 232, 0.34);
+  color: rgba(247, 243, 232, 0.82);
+  font-size: 22rpx;
+  letter-spacing: 2rpx;
+}
+
+.profile__action--on {
+  border-color: rgba(217, 192, 140, 0.66);
+  color: #D9C08C;
+}
+
+/* ---------- 记录卡 ---------- */
+
+.rec {
+  margin-bottom: 20rpx;
+  padding: 30rpx 30rpx 24rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  box-shadow: 0 6rpx 22rpx rgba(18, 51, 44, 0.04);
+}
+
+.rec__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rec__name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 2rpx;
+}
+
+.rec__status {
+  padding: 4rpx 16rpx;
+  border-radius: 4rpx;
+  font-size: 21rpx;
+  letter-spacing: 1rpx;
+}
+
+.rec__status--pending {
+  background: rgba(185, 154, 91, 0.13);
+  color: #96783B;
+}
+
+.rec__status--approved {
+  background: rgba(47, 110, 91, 0.11);
+  color: var(--jade);
+}
+
+.rec__status--rejected,
+.rec__status--canceled {
+  background: rgba(122, 133, 127, 0.1);
+  color: #7A857F;
+}
+
+.rec__main {
+  display: flex;
+  align-items: flex-start;
+  gap: 20rpx;
+  margin-top: 18rpx;
+}
+
+.rec__photo {
+  flex: 0 0 132rpx;
+  width: 132rpx;
+  height: 132rpx;
+  border-radius: 10rpx;
+  background: #F2F4F1;
+}
+
+.rec__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.rec__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.rec__chip {
+  padding: 4rpx 16rpx;
+  border-radius: 4rpx;
+  border: 1rpx solid var(--line);
+  font-size: 21rpx;
+  color: var(--text-sub);
+}
+
+.rec__row {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 16rpx;
+}
+
+.rec__key {
+  flex: 0 0 68rpx;
+  font-size: 23rpx;
+  color: var(--text-mute);
+  letter-spacing: 2rpx;
+}
+
+.rec__val {
+  flex: 1;
+  font-size: 25rpx;
+  color: var(--text);
+}
+
+.rec__val--long {
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+.rec__hair {
+  margin: 22rpx 0 16rpx;
+}
+
+.rec__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rec__time {
+  font-size: 21rpx;
+  color: var(--text-mute);
+}
+
+.rec__action {
+  font-size: 23rpx;
+  color: var(--danger);
+  padding: 4rpx 0 4rpx 20rpx;
+}
+
+/* ---------- 空态 ---------- */
+
+.empty {
+  margin-top: 12rpx;
+  padding: 60rpx 44rpx 48rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.empty__seal {
+  width: 84rpx;
+  height: 84rpx;
+  border: 2rpx solid rgba(185, 154, 91, 0.4);
+  border-radius: 6rpx;
+  color: var(--gold);
+  font-size: 38rpx;
+  line-height: 80rpx;
+  transform: rotate(-3deg);
+}
+
+.empty__title {
+  margin-top: 28rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 2rpx;
+}
+
+.empty__desc {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+.empty__btn {
+  width: 340rpx;
+  margin-top: 36rpx;
+}

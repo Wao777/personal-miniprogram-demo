@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/enroll/enroll",
+    "pages/records/records"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#12332C",
+    "navigationBarTitleText": "青城山修仙大学",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F4F5F1",
+    "backgroundColorTop": "#12332C",
+    "backgroundColorBottom": "#F4F5F1"
+  },
+  "tabBar": {
+    "color": "#8B968F",
+    "selectedColor": "#1F4B43",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/tabbar/home.png",
+        "selectedIconPath": "assets/tabbar/home-on.png"
+      },
+      {
+        "pagePath": "pages/enroll/enroll",
+        "text": "报名",
+        "iconPath": "assets/tabbar/form.png",
+        "selectedIconPath": "assets/tabbar/form-on.png"
+      },
+      {
+        "pagePath": "pages/records/records",
+        "text": "我的报名",
+        "iconPath": "assets/tabbar/records.png",
+        "selectedIconPath": "assets/tabbar/records-on.png"
+      }
+    ]
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

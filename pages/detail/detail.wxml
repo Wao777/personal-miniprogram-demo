@@ -1,0 +1,132 @@
+<view class="pg">
+
+  <block wx:if="{{loading}}">
+    <view class="state">
+      <view class="state__ring"></view>
+      <text class="state__text">正在展开山图…</text>
+    </view>
+  </block>
+
+  <block wx:elif="{{failed}}">
+    <view class="state">
+      <text class="state__text">详情加载失败，请返回重试</text>
+    </view>
+  </block>
+
+  <block wx:else>
+
+    <view class="top">
+      <image wx:if="{{coverUrl}}" class="top__cover" src="{{coverUrl}}" mode="aspectFill" />
+      <view class="top__veil"></view>
+      <view class="top__inner">
+        <view class="top__badge">{{badgeText}}</view>
+        <view class="top__title">{{activity.title}}</view>
+        <view class="top__sub">{{activity.subtitle}}</view>
+        <view class="top__meta">
+          <text>{{activity.period}}</text>
+          <text class="top__sep">·</text>
+          <text>{{activity.location}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="sec">
+      <view class="sec-head">
+        <text class="sec-title">缘起</text>
+        <text class="sec-sub">活动介绍</text>
+      </view>
+      <view class="card">
+        <text class="intro">{{activity.intro}}</text>
+      </view>
+    </view>
+
+    <view class="sec">
+      <view class="sec-head">
+        <text class="sec-title">七日日程</text>
+        <text class="sec-sub">晨昏不辍</text>
+      </view>
+      <view class="card timeline">
+        <view class="timeline__row" wx:for="{{schedule}}" wx:key="day">
+          <view class="timeline__rail">
+            <view class="timeline__dot"></view>
+            <view class="timeline__line" wx:if="{{index < schedule.length - 1}}"></view>
+          </view>
+          <view class="timeline__body">
+            <view class="timeline__head">
+              <text class="timeline__day">{{item.day}}</text>
+              <text class="timeline__title">{{item.title}}</text>
+            </view>
+            <text class="timeline__desc">{{item.desc}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="sec">
+      <view class="sec-head">
+        <text class="sec-title">课业门类</text>
+        <text class="sec-sub">择一而入</text>
+      </view>
+      <view class="card tracks">
+        <view class="tracks__row" wx:for="{{tracks}}" wx:key="key">
+          <image wx:if="{{item.icon}}" class="tracks__icon" src="{{item.icon}}" mode="aspectFit" />
+          <view wx:else class="tracks__mark"></view>
+          <view class="tracks__body">
+            <text class="tracks__name">{{item.name}}</text>
+            <text class="tracks__desc">{{item.desc}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="sec">
+      <view class="sec-head">
+        <text class="sec-title">报名须知</text>
+        <text class="sec-sub">入山前请细读</text>
+      </view>
+      <view class="card notices">
+        <view class="notices__row" wx:for="{{notices}}" wx:key="*this">
+          <text class="notices__index">{{index + 1}}</text>
+          <text class="notices__text">{{item}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="sec">
+      <view class="sec-head">
+        <text class="sec-title">山中所在</text>
+        <text class="sec-sub">行前信息</text>
+      </view>
+      <view class="card facts">
+        <view class="facts__row">
+          <text class="facts__key">道场</text>
+          <text class="facts__val">{{activity.location}}</text>
+        </view>
+        <view class="facts__row">
+          <text class="facts__key">会期</text>
+          <text class="facts__val">{{activity.period}}</text>
+        </view>
+        <view class="facts__row">
+          <text class="facts__key">名额</text>
+          <text class="facts__val">{{activity.quota}} 席（已报 {{enrolledCount}} 人）</text>
+        </view>
+        <view class="facts__row">
+          <text class="facts__key">截止</text>
+          <text class="facts__val">{{deadlineText}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="colophon">
+      <text class="colophon__main">青城山 · 上清宫</text>
+      <text class="colophon__sub">庚子期招生</text>
+    </view>
+
+    <view class="footer">
+      <view class="btn btn--ghost footer__ghost" hover-class="btn--hover" bindtap="goHome">回到首页</view>
+      <view wx:if="{{enrolled}}" class="btn btn--gold footer__main" hover-class="btn--hover" bindtap="goRecords">已报名 · 查看记录</view>
+      <view wx:else class="btn btn--primary footer__main" hover-class="btn--hover" bindtap="goEnroll">立即报名</view>
+    </view>
+
+  </block>
+</view>

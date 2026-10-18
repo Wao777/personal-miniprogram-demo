@@ -1,0 +1,9 @@
+{
+  "name": "qingcheng-xiuxian-miniprogram",
+  "version": "1.0.0",
+  "private": true,
+  "description": "青城山修仙大学招生 · 活动报名微信小程序",
+  "dependencies": {
+    "@tencent-ai/workbuddy-cloud-sdk": "dev"
+  }
+}

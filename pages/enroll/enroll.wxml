@@ -1,0 +1,158 @@
+<view class="pg">
+
+  <!-- ============ 未登录 ============ -->
+  <block wx:if="{{!loggedIn}}">
+    <view class="sec">
+      <view class="card gate">
+        <view class="gate__seal">入</view>
+        <text class="gate__title">先登录，再报名</text>
+        <text class="gate__desc">使用微信授权登录后即可报名，提交记录可在「我的报名」中随时查看。</text>
+        <view class="btn btn--primary gate__btn" hover-class="btn--hover" bindtap="onLogin">
+          {{loggingIn ? '正在登录…' : '微信一键登录'}}
+        </view>
+        <text class="gate__note">仅用于身份识别，不会获取你的通讯录等信息</text>
+      </view>
+    </view>
+  </block>
+
+  <block wx:else>
+
+    <!-- ============ 已报名 ============ -->
+    <view wx:if="{{existing}}" class="sec">
+      <view class="card done">
+        <view class="done__head">
+          <text class="done__tag">{{existing.statusText}}</text>
+          <text class="done__time">{{existing.createdText}} 提交</text>
+        </view>
+        <text class="done__name">{{existing.applicant_name}}</text>
+        <view class="done__meta">
+          <text>{{existing.track}}</text>
+          <text class="done__dot">·</text>
+          <text>{{existing.region}}</text>
+        </view>
+        <view class="hair done__hair"></view>
+        <text class="done__tip">本期报名已提交，如资料有误或有变，可先在「我的报名」中取消后重新报名。</text>
+        <view class="btn btn--ghost done__btn" hover-class="btn--hover" bindtap="goRecords">查看我的报名</view>
+      </view>
+    </view>
+    <block wx:else>
+
+      <view class="sec">
+        <view class="sec-head">
+          <text class="sec-title">报名资料</text>
+          <text class="sec-sub">带 · 为必填</text>
+        </view>
+
+        <view class="card form">
+
+          <view class="field">
+            <view class="field__label">
+              <text class="field__name">姓名</text>
+              <text class="field__req">·</text>
+            </view>
+            <input class="field__input" value="{{form.applicant_name}}" placeholder="请填写真实姓名"
+              placeholder-class="field__ph" maxlength="20" data-key="applicant_name" bindinput="onInput" />
+            <text class="field__err" wx:if="{{errors.applicant_name}}">{{errors.applicant_name}}</text>
+          </view>
+
+          <view class="field">
+            <view class="field__label">
+              <text class="field__name">手机号</text>
+              <text class="field__req">·</text>
+            </view>
+            <input class="field__input" value="{{form.phone}}" type="number" placeholder="用于接收入山通知"
+              placeholder-class="field__ph" maxlength="11" data-key="phone" bindinput="onInput" />
+            <text class="field__err" wx:if="{{errors.phone}}">{{errors.phone}}</text>
+          </view>
+
+          <view class="field">
+            <view class="field__label">
+              <text class="field__name">性别</text>
+            </view>
+            <view class="field__chips">
+              <view class="chip {{form.gender === item ? 'chip--on' : ''}}" wx:for="{{genders}}" wx:key="*this"
+                data-value="{{item}}" bindtap="onPickGender">{{item}}</view>
+            </view>
+          </view>
+
+          <view class="field">
+            <view class="field__label">
+              <text class="field__name">年龄</text>
+            </view>
+            <input class="field__input" value="{{form.age}}" type="number" placeholder="十六岁以上方可入山"
+              placeholder-class="field__ph" maxlength="2" data-key="age" bindinput="onInput" />
+            <text class="field__err" wx:if="{{errors.age}}">{{errors.age}}</text>
+          </view>
+
+          <view class="field">
+            <view class="field__label">
+              <text class="field__name">所在地</text>
+              <text class="field__req">·</text>
+            </view>
+            <input class="field__input" value="{{form.region}}" placeholder="如：四川 成都"
+              placeholder-class="field__ph" maxlength="30" data-key="region" bindinput="onInput" />
+            <text class="field__err" wx:if="{{errors.region}}">{{errors.region}}</text>
+          </view>
+
+          <view class="field">
+            <view class="field__label">
+              <text class="field__name">意向课业</text>
+              <text class="field__req">·</text>
+            </view>
+            <view class="field__chips">
+              <view class="chip {{form.track === item.name ? 'chip--on' : ''}}" wx:for="{{tracks}}" wx:key="key"
+                data-value="{{item.name}}" bindtap="onPickTrack">{{item.name}}</view>
+            </view>
+            <text class="field__err" wx:if="{{errors.track}}">{{errors.track}}</text>
+          </view>
+
+          <view class="field">
+            <view class="field__label">
+              <text class="field__name">自我介绍</text>
+            </view>
+            <textarea class="field__area" value="{{form.self_intro}}" placeholder="为何想入山？想学什么？一两句即可。"
+              placeholder-class="field__ph" maxlength="200" data-key="self_intro" bindinput="onInput"
+              auto-height />
+            <view class="field__counter">{{form.self_intro.length}}/200</view>
+          </view>
+
+          <view class="field field--last">
+            <view class="field__label">
+              <text class="field__name">形象照</text>
+              <text class="field__opt">选填</text>
+            </view>
+            <view class="photo">
+              <view class="photo__box" bindtap="onPickPhoto">
+                <image wx:if="{{photo.preview}}" class="photo__img" src="{{photo.preview}}" mode="aspectFill" />
+                <view wx:else class="photo__hint">
+                  <view class="photo__plus"></view>
+                  <text class="photo__plus-text">选择照片</text>
+                </view>
+              </view>
+              <view class="photo__side">
+                <text class="photo__tip">{{photo.tip}}</text>
+                <text wx:if="{{photo.path}}" class="photo__remove" bindtap="onRemovePhoto">移除照片</text>
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </view>
+
+      <view class="agree">
+        <text class="agree__text">提交即表示同意主办方将以上信息用于本次活动组织与联络</text>
+      </view>
+
+      <view class="footer">
+        <view class="footer__summary">
+          <text class="footer__count">剩余 {{leftCount}} 席</text>
+          <text class="footer__deadline">{{deadlineText}} 截止</text>
+        </view>
+        <view class="btn {{submitting ? 'btn--disabled' : 'btn--primary'}} footer__submit" hover-class="btn--hover"
+          bindtap="onSubmit">{{submitting ? '提交中…' : '提交报名'}}</view>
+      </view>
+
+    </block>
+  </block>
+
+</view>

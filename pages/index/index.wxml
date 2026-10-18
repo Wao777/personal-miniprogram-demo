@@ -1,0 +1,120 @@
+<view class="pg">
+
+  <block wx:if="{{loading}}">
+    <view class="state">
+      <view class="state__ring"></view>
+      <text class="state__text">正在迎山门…</text>
+    </view>
+  </block>
+
+  <block wx:elif="{{failed}}">
+    <view class="state">
+      <text class="state__text">山门暂时未开，请稍后再试</text>
+      <text class="state__link" bindtap="load">重新加载</text>
+    </view>
+  </block>
+
+  <block wx:else>
+
+    <!-- ============ 山门 ============ -->
+    <view class="hero">
+      <image wx:if="{{coverUrl}}" class="hero__cover" src="{{coverUrl}}" mode="aspectFill" />
+      <view class="hero__veil"></view>
+      <view class="hero__ridge hero__ridge--far"></view>
+      <view class="hero__ridge hero__ridge--near"></view>
+
+      <view class="hero__inner">
+        <view class="hero__badge">{{badgeText}}</view>
+        <view class="hero__title">{{activity.title}}</view>
+        <view class="hero__sub">{{activity.subtitle}}</view>
+        <view class="hero__rule"></view>
+        <view class="hero__meta">
+          <text>{{activity.period}}</text>
+          <text class="hero__sep">·</text>
+          <text>{{activity.location}}</text>
+        </view>
+      </view>
+
+      <view class="hero__seal">道</view>
+    </view>
+
+    <!-- ============ 名额与倒计时 ============ -->
+    <view class="stats">
+      <view class="stats__cell">
+        <text class="stats__num">{{stats.enrolled}}</text>
+        <text class="stats__lab">已报名</text>
+      </view>
+      <view class="stats__cell">
+        <text class="stats__num">{{stats.left}}</text>
+        <text class="stats__lab">剩余名额</text>
+      </view>
+      <view class="stats__cell">
+        <text class="stats__num">{{stats.daysLeft}}</text>
+        <text class="stats__lab">报名截止倒计时</text>
+      </view>
+    </view>
+
+    <!-- ============ 山中四事 ============ -->
+    <view class="sec">
+      <view class="sec-head">
+        <text class="sec-title">山中四事</text>
+        <text class="sec-sub">七日课业之要</text>
+      </view>
+      <view class="grid">
+        <view class="grid__item" wx:for="{{highlights}}" wx:key="no">
+          <image wx:if="{{item.image}}" class="grid__bg" src="{{item.image}}" mode="aspectFill" />
+          <view wx:if="{{item.image}}" class="grid__wash"></view>
+          <text class="grid__no">{{item.no}}</text>
+          <text class="grid__title">{{item.title}}</text>
+          <text class="grid__desc">{{item.desc}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- ============ 五门课业 ============ -->
+    <view class="sec">
+      <view class="sec-head">
+        <text class="sec-title">五门课业</text>
+        <text class="sec-sub">报名时择一而入</text>
+      </view>
+      <view class="card tracks">
+        <view class="tracks__row" wx:for="{{tracks}}" wx:key="key">
+          <image wx:if="{{item.icon}}" class="tracks__icon" src="{{item.icon}}" mode="aspectFit" />
+          <view wx:else class="tracks__mark"></view>
+          <view class="tracks__body">
+            <text class="tracks__name">{{item.name}}</text>
+            <text class="tracks__desc">{{item.desc}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- ============ 报名流程 ============ -->
+    <view class="sec">
+      <view class="sec-head">
+        <text class="sec-title">报名流程</text>
+        <text class="sec-sub">四步入山</text>
+      </view>
+      <view class="card steps">
+        <view class="steps__row" wx:for="{{steps}}" wx:key="*this">
+          <view class="steps__rail">
+            <view class="steps__index">{{index + 1}}</view>
+            <view class="steps__line" wx:if="{{index < steps.length - 1}}"></view>
+          </view>
+          <text class="steps__text">{{item}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="colophon">
+      <text class="colophon__main">青城山 · 上清宫</text>
+      <text class="colophon__sub">庚子期招生</text>
+    </view>
+
+    <view class="footer">
+      <view class="btn btn--ghost footer__ghost" hover-class="btn--hover" bindtap="goDetail">活动详情</view>
+      <view class="btn btn--primary footer__main" hover-class="btn--hover" bindtap="goEnroll">立即报名</view>
+    </view>
+
+  </block>
+</view>

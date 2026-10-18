@@ -1,0 +1,18 @@
+# 依赖与构建产物
+node_modules/
+
+# 平台打包产物
+dist/
+
+# 本地云环境配置（含 resourceId / publishableKey，只留在本机）
+config/cloud.js
+
+# 平台生成的应用标记（文件名含本机应用 id）
+.wbapp_*.privacy.json
+.wbapp_*.genie
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

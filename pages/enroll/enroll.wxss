@@ -1,0 +1,312 @@
+/* ---------- 登录门槛 ---------- */
+
+.gate {
+  margin-top: 40rpx;
+  padding: 52rpx 40rpx 44rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.gate__seal {
+  width: 88rpx;
+  height: 88rpx;
+  border: 2rpx solid rgba(185, 154, 91, 0.45);
+  border-radius: 6rpx;
+  color: var(--gold);
+  font-size: 42rpx;
+  line-height: 84rpx;
+  letter-spacing: 0;
+  transform: rotate(-3deg);
+}
+
+.gate__title {
+  margin-top: 30rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 2rpx;
+}
+
+.gate__desc {
+  margin-top: 16rpx;
+  font-size: 25rpx;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+.gate__btn {
+  width: 100%;
+  margin-top: 40rpx;
+}
+
+.gate__note {
+  margin-top: 20rpx;
+  font-size: 21rpx;
+  color: var(--text-mute);
+}
+
+/* ---------- 已报名 ---------- */
+
+.done {
+  margin-top: 30rpx;
+  padding: 34rpx 32rpx;
+}
+
+.done__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.done__tag {
+  padding: 5rpx 18rpx;
+  border-radius: 4rpx;
+  background: rgba(185, 154, 91, 0.12);
+  color: #9A7C3F;
+  font-size: 22rpx;
+  letter-spacing: 2rpx;
+}
+
+.done__time {
+  font-size: 22rpx;
+  color: var(--text-mute);
+}
+
+.done__name {
+  display: block;
+  margin-top: 24rpx;
+  font-size: 38rpx;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 2rpx;
+}
+
+.done__meta {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: var(--text-sub);
+}
+
+.done__dot {
+  color: var(--text-mute);
+}
+
+.done__hair {
+  margin: 28rpx 0 22rpx;
+}
+
+.done__tip {
+  font-size: 24rpx;
+  color: var(--text-sub);
+  line-height: 1.7;
+}
+
+.done__btn {
+  margin-top: 30rpx;
+}
+
+/* ---------- 表单 ---------- */
+
+.form {
+  padding: 4rpx 30rpx;
+}
+
+.field {
+  padding: 28rpx 0;
+  border-bottom: 1rpx solid var(--line);
+}
+
+.field--last {
+  border-bottom: none;
+}
+
+.field__label {
+  display: flex;
+  align-items: baseline;
+  gap: 6rpx;
+  margin-bottom: 12rpx;
+}
+
+.field__name {
+  font-size: 25rpx;
+  color: var(--text-sub);
+  letter-spacing: 1rpx;
+}
+
+.field__req {
+  font-size: 26rpx;
+  color: var(--gold);
+}
+
+.field__opt {
+  font-size: 21rpx;
+  color: var(--text-mute);
+}
+
+.field__input {
+  width: 100%;
+  height: 72rpx;
+  font-size: 30rpx;
+  color: var(--text);
+  letter-spacing: 0.5rpx;
+}
+
+.field__ph {
+  color: #B4BEB8;
+  font-size: 27rpx;
+}
+
+.field__area {
+  width: 100%;
+  min-height: 130rpx;
+  font-size: 27rpx;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.field__counter {
+  text-align: right;
+  font-size: 21rpx;
+  color: var(--text-mute);
+}
+
+.field__err {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 22rpx;
+  color: var(--danger);
+}
+
+.field__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  padding-top: 4rpx;
+}
+
+/* ---------- 形象照 ---------- */
+
+.photo {
+  display: flex;
+  gap: 24rpx;
+  padding-top: 6rpx;
+}
+
+.photo__box {
+  position: relative;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 12rpx;
+  border: 1rpx dashed #CCD5CF;
+  background: #FAFBF9;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo__img {
+  width: 100%;
+  height: 100%;
+}
+
+.photo__hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.photo__plus {
+  position: relative;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.photo__plus::before,
+.photo__plus::after {
+  content: '';
+  position: absolute;
+  background: #C2CCC6;
+}
+
+.photo__plus::before {
+  left: 19rpx;
+  top: 0;
+  width: 2rpx;
+  height: 40rpx;
+}
+
+.photo__plus::after {
+  left: 0;
+  top: 19rpx;
+  width: 40rpx;
+  height: 2rpx;
+}
+
+.photo__plus-text {
+  font-size: 21rpx;
+  color: var(--text-mute);
+}
+
+.photo__side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14rpx;
+}
+
+.photo__tip {
+  font-size: 22rpx;
+  color: var(--text-mute);
+  line-height: 1.6;
+}
+
+.photo__remove {
+  font-size: 23rpx;
+  color: var(--danger);
+}
+
+/* ---------- 说明 ---------- */
+
+.agree {
+  margin: 24rpx 40rpx 0;
+}
+
+.agree__text {
+  font-size: 21rpx;
+  color: var(--text-mute);
+  line-height: 1.6;
+}
+
+/* ---------- 底部 ---------- */
+
+.footer__summary {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rpx;
+  padding-left: 4rpx;
+}
+
+.footer__count {
+  font-size: 27rpx;
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: 1rpx;
+}
+
+.footer__deadline {
+  font-size: 20rpx;
+  color: var(--text-mute);
+}
+
+.footer__submit {
+  flex: 0 0 280rpx;
+}

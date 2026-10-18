@@ -1,0 +1,45 @@
+{
+  "miniprogramRoot": "./",
+  "compileType": "miniprogram",
+  "appid": "",
+  "projectname": "qingcheng-xiuxian-miniprogram",
+  "description": "青城山修仙大学 · 活动报名小程序",
+  "libVersion": "3.5.5",
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": []
+  },
+  "packOptions": {
+    "ignore": [
+      { "type": "folder", "value": "tests" },
+      { "type": "folder", "value": "dist" },
+      { "type": "folder", "value": "tools" },
+      { "type": "file", "value": "README.md" },
+      { "type": "file", "value": "package-lock.json" }
+    ],
+    "include": []
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        { "name": "活动详情", "pathName": "pages/detail/detail", "query": "", "scene": null },
+        { "name": "在线报名", "pathName": "pages/enroll/enroll", "query": "", "scene": null },
+        { "name": "报名记录", "pathName": "pages/records/records", "query": "", "scene": null }
+      ]
+    }
+  }
+}

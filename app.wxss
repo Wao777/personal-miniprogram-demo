@@ -1,0 +1,218 @@
+/* ============================================================
+   青城山修仙大学 · 全局设计令牌与基础组件样式
+   主色：青黛  /  点缀：古金  /  底色：宣纸白
+   ============================================================ */
+
+page {
+  --ink: #12332C;
+  --ink-soft: #1B4A40;
+  --primary: #1F4B43;
+  --jade: #2F6E5B;
+  --gold: #B99A5B;
+  --gold-light: #D9C08C;
+  --gold-soft: #F0E6D2;
+  --bg: #F4F5F1;
+  --card: #FFFFFF;
+  --text: #1B2A25;
+  --text-sub: #66756F;
+  --text-mute: #9AA7A1;
+  --line: #E6E9E4;
+  --danger: #A5503F;
+
+  background: #F4F5F1;
+  color: #1B2A25;
+  font-size: 28rpx;
+  line-height: 1.6;
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+view,
+text,
+input,
+textarea,
+button,
+image,
+scroll-view {
+  box-sizing: border-box;
+}
+
+/* ---------- 版式 ---------- */
+
+.pg {
+  min-height: 100vh;
+  padding-bottom: 190rpx;
+}
+
+.sec {
+  margin: 34rpx 28rpx 0;
+}
+
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+  padding-left: 2rpx;
+}
+
+.sec-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 1rpx;
+}
+
+.sec-sub {
+  font-size: 22rpx;
+  color: var(--text-mute);
+  letter-spacing: 1rpx;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 24rpx;
+  padding: 34rpx 30rpx;
+  box-shadow: 0 6rpx 22rpx rgba(18, 51, 44, 0.04);
+}
+
+.hair {
+  height: 1rpx;
+  background: var(--line);
+}
+
+/* ---------- 按钮 ---------- */
+
+.btn {
+  height: 88rpx;
+  border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  font-weight: 600;
+  letter-spacing: 3rpx;
+  transition: opacity 0.15s;
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, #1F4B43, #2F6E5B);
+  color: #F7F2E6;
+  box-shadow: 0 10rpx 24rpx rgba(31, 75, 67, 0.22);
+}
+
+.btn--ghost {
+  background: #FFFFFF;
+  border: 1rpx solid var(--line);
+  color: var(--primary);
+}
+
+.btn--gold {
+  background: linear-gradient(135deg, #C6A867, #B08F4F);
+  color: #2A2317;
+}
+
+.btn--disabled {
+  background: #CBD3CE;
+  color: #FFFFFF;
+  box-shadow: none;
+}
+
+.btn--hover {
+  opacity: 0.82;
+}
+
+/* ---------- 底部固定操作条 ---------- */
+
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  padding: 18rpx 28rpx;
+  padding-bottom: calc(18rpx + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.97);
+  border-top: 1rpx solid var(--line);
+}
+
+.footer__ghost {
+  flex: 0 0 220rpx;
+}
+
+.footer__main {
+  flex: 1;
+}
+
+/* ---------- 标签 ---------- */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 60rpx;
+  padding: 0 26rpx;
+  border-radius: 4rpx;
+  border: 1rpx solid var(--line);
+  background: #FFFFFF;
+  color: var(--text-sub);
+  font-size: 25rpx;
+  letter-spacing: 1rpx;
+}
+
+.chip--on {
+  border-color: var(--primary);
+  background: rgba(31, 75, 67, 0.06);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ---------- 状态 ---------- */
+
+.state {
+  padding: 160rpx 60rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18rpx;
+}
+
+.state__text {
+  font-size: 26rpx;
+  color: var(--text-mute);
+  letter-spacing: 1rpx;
+  text-align: center;
+}
+
+.state__link {
+  font-size: 26rpx;
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* ---------- 页脚落款 ---------- */
+
+.colophon {
+  margin: 56rpx 28rpx 20rpx;
+  padding-top: 30rpx;
+  border-top: 1rpx solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rpx;
+}
+
+.colophon__main {
+  font-size: 24rpx;
+  color: var(--text-sub);
+  letter-spacing: 4rpx;
+}
+
+.colophon__sub {
+  font-size: 20rpx;
+  color: var(--text-mute);
+  letter-spacing: 2rpx;
+}

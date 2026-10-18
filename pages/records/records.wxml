@@ -1,0 +1,80 @@
+<view class="pg">
+
+  <!-- ============ 身份卡 ============ -->
+  <view class="profile">
+    <view class="profile__avatar">
+      <image wx:if="{{avatarUrl}}" class="profile__img" src="{{avatarUrl}}" mode="aspectFill" />
+      <text wx:else class="profile__initial">{{initial}}</text>
+    </view>
+    <view class="profile__body">
+      <text class="profile__name">{{displayName}}</text>
+      <text class="profile__sub">{{loggedIn ? activityTitle : '登录后可查看报名进度'}}</text>
+    </view>
+    <view wx:if="{{loggedIn}}" class="profile__action" bindtap="onLogout">退出</view>
+    <view wx:else class="profile__action profile__action--on" bindtap="onLogin">登录</view>
+  </view>
+
+  <!-- ============ 记录 ============ -->
+  <view class="sec">
+    <view class="sec-head">
+      <text class="sec-title">我的报名</text>
+      <text class="sec-sub">{{records.length}} 条记录</text>
+    </view>
+
+    <block wx:if="{{loading}}">
+      <view class="state">
+        <text class="state__text">正在查阅名册…</text>
+      </view>
+    </block>
+
+    <block wx:elif="{{records.length === 0}}">
+      <view class="card empty">
+        <view class="empty__seal">空</view>
+        <text class="empty__title">{{loggedIn ? '尚无报名记录' : '还未登录'}}</text>
+        <text class="empty__desc">{{loggedIn ? '本期招生尚有余额，可前往报名页提交资料。' : '使用微信登录后，即可查看你的报名记录。'}}</text>
+        <view class="btn btn--primary empty__btn" hover-class="btn--hover" bindtap="onEmptyAction">
+          {{loggedIn ? '去报名' : '微信一键登录'}}
+        </view>
+      </view>
+    </block>
+
+    <block wx:else>
+      <view class="rec" wx:for="{{records}}" wx:key="id">
+        <view class="rec__head">
+          <text class="rec__name">{{item.applicant_name}}</text>
+          <text class="rec__status rec__status--{{item.status}}">{{item.statusText}}</text>
+        </view>
+        <view class="rec__main">
+          <image wx:if="{{item.photoUrl}}" class="rec__photo" src="{{item.photoUrl}}" mode="aspectFill" />
+          <view class="rec__body">
+            <view class="rec__chips">
+              <text class="rec__chip">{{item.track}}</text>
+              <text class="rec__chip">{{item.region}}</text>
+              <text wx:if="{{item.gender}}" class="rec__chip">{{item.gender}}</text>
+              <text wx:if="{{item.ageText}}" class="rec__chip">{{item.ageText}}</text>
+            </view>
+            <view class="rec__row">
+              <text class="rec__key">手机</text>
+              <text class="rec__val">{{item.phoneText}}</text>
+            </view>
+            <view wx:if="{{item.self_intro}}" class="rec__row">
+              <text class="rec__key">自述</text>
+              <text class="rec__val rec__val--long">{{item.self_intro}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="hair rec__hair"></view>
+        <view class="rec__foot">
+          <text class="rec__time">{{item.createdText}} 提交</text>
+          <text wx:if="{{item.canCancel}}" class="rec__action" data-id="{{item.id}}" bindtap="onCancel">取消报名</text>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="colophon">
+    <text class="colophon__main">青城山 · 上清宫</text>
+    <text class="colophon__sub">庚子期招生</text>
+  </view>
+
+</view>
